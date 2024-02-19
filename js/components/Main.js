@@ -1,14 +1,20 @@
 import React from "react";
 import {Provider} from "react-redux";
-import {MovieDetails} from "./MovieDetails";
-import {Navbar, ResponsiveAppBar} from "./Navbar";
+import {MovieDetails} from "./Movie/MovieDetails";
+import {Navbar} from "./Navbar";
+import {HashRouter, Route, Routes} from "react-router-dom";
+import {Search} from "./Search/Search";
 
 const Main = () => {
     return (
         <>
-            <ResponsiveAppBar/>
-            <Navbar/>
-            <MovieDetails movieId={"tt1285016"}/>
+            <HashRouter>
+                <Navbar/>
+                <Routes>
+                    <Route path={"/"} element={<Search/>}/>
+                    <Route path={"/film/"} element={<MovieDetails movieId={"tt2190483"}/>}/>
+                </Routes>
+            </HashRouter>
         </>
     )
 }

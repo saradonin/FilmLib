@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {getMovieById} from "../api/movies";
+import {getMovieById} from "../../api/movies";
 import {Grid} from "@mui/material";
 
 export const MovieDetails = ({movieId}) => {
@@ -22,10 +22,10 @@ export const MovieDetails = ({movieId}) => {
                     <h1>{movie.Title}</h1>
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item xs={3}>
                     <img src={movie.Poster}/>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={9}>
                     <p>{movie.Year}</p>
                     <p>{movie.Director}</p>
                     {movie.Plot}
