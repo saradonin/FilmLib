@@ -3,11 +3,11 @@ const webpack = require("webpack");
 
 module.exports = {
   mode: "none",
-  entry: `./js/app.js`,
+  entry: `./src/js/app.js`,
   devtool: "inline-source-map",
   output: {
     filename: "out.js",
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "src", "build"),
     clean: true,
   },
   devServer: {

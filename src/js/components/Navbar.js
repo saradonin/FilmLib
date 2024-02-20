@@ -9,9 +9,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import CameraIcon from '@mui/icons-material/Camera';
+import CameraRollIcon from '@mui/icons-material/CameraRoll';
+import { Link } from 'react-router-dom';
 
-const pages = ['Search', 'Watched', 'Watchlist'];
+const pages = [
+    {text: 'Search', url: "/search"},
+    {text: 'Watched', url: "/watched"},
+    {text: 'Watchlist', url: "/watchlist"}
+];
 
 export const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -28,7 +33,7 @@ export const Navbar = () => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <CameraIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <CameraRollIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -77,13 +82,13 @@ export const Navbar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem key={page.text} onClick={handleCloseNavMenu} component={Link} to={page.url}>
+                                    <Typography textAlign="center">{page.text}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <CameraIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
+                    <CameraRollIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
                     <Typography
                         variant="h5"
                         noWrap
@@ -105,11 +110,12 @@ export const Navbar = () => {
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
                             <Button
-                                key={page}
+                                key={page.text}
                                 onClick={handleCloseNavMenu}
+                                component={Link} to={page.url}
                                 sx={{my: 2, color: 'white', display: 'block'}}
                             >
-                                {page}
+                                {page.text}
                             </Button>
                         ))}
                     </Box>
