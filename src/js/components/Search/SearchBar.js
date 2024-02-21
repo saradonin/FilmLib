@@ -3,16 +3,17 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {getMovieByTitle, searchMoviesByTitle} from "../../api/movies";
-export const SearchBar = () => {
+export const SearchBar = ({onSearch}) => {
     const [title, setTitle] = useState("")
 
     const handleChange = (e) => {
         setTitle(e.target.value)
     }
 
-    const handleSearch = () => {
-        const result = searchMoviesByTitle(title)
-        console.log(result)
+    const handleSearch = async () => {
+        const result = await searchMoviesByTitle(title)
+        onSearch(result)
+        setTitle("")
     }
 
     const handleSubmit = (e) => {
@@ -24,6 +25,10 @@ export const SearchBar = () => {
         <Box
             component="form"
             sx={{
+                paddingTop: '25px',
+                paddingBottom: '25px',
+                display: 'flex',
+                justifyContent: 'center',
                 '& > :not(style)': { m: 1, width: '25ch' },
             }}
             noValidate
@@ -32,12 +37,18 @@ export const SearchBar = () => {
         >
             <TextField
                 id="outlined-basic"
+                value={title}
                 label="Movie title"
                 variant="outlined"
                 size="small"
                 onChange={handleChange}
             />
-            <Button variant="contained" onClick={handleSearch}>Search</Button>
+            <Button
+                variant="contained"
+                onClick={handleSearch}
+            >
+                Search
+            </Button>
         </Box>
     )
 }

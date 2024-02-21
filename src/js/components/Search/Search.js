@@ -3,13 +3,13 @@ import {SearchBar} from "./SearchBar";
 import {SearchResults} from "./SearchResults";
 import Container from '@mui/material/Container';
 
-export const Search = () => {
+export const Search = ({results, onSearch}) => {
 
     return (
         <>
-            <Container maxWidth="sm">
-                <SearchBar/>
-                <SearchResults/>
+            <Container maxWidth="lg">
+                <SearchBar onSearch={onSearch}/>
+                <SearchResults results={results}/>
             </Container>
         </>
     )

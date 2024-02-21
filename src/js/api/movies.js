@@ -27,8 +27,8 @@ export const searchMoviesByTitle = async (title) => {
     try {
         const response = await fetch(`${API_URL}/?apikey=${API_KEY}&s=${title}`)
         const data = await response.json()
-        console.log("search results:", data)
-        return data
+        console.log("search results:", data.Search)
+        return data.Search
     } catch (error) {
         console.log(error)
     }
