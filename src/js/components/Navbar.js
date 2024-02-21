@@ -18,7 +18,7 @@ const pages = [
     {text: 'Watchlist', url: "/watchlist"}
 ];
 
-export const Navbar = () => {
+export default function Navbar () {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {

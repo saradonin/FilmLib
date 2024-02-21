@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
 
-export const MovieDetails = () => {
+export default function MovieDetails () {
     const [movie, setMovie] = useState({})
     const {movieId} = useParams()
 
@@ -27,7 +27,7 @@ export const MovieDetails = () => {
     return (
         <Box sx={{ margin: 5}}>
             <Box>
-                <Typography gutterBottom variant="h3" component="div">
+                <Typography gutterBottom variant="h4" component="div">
                     {movie.Title}
                 </Typography>
             </Box>

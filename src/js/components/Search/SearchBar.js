@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import {getMovieByTitle, searchMoviesByTitle} from "../../api/movies";
-export const SearchBar = ({onSearch}) => {
+import {searchMoviesByTitle} from "../../api/movies";
+
+export default function SearchBar({onSearch}) {
     const [title, setTitle] = useState("")
 
     const handleChange = (e) => {
@@ -29,7 +30,7 @@ export const SearchBar = ({onSearch}) => {
                 paddingBottom: '25px',
                 display: 'flex',
                 justifyContent: 'center',
-                '& > :not(style)': { m: 1, width: '25ch' },
+                '& > :not(style)': {m: 1, width: '25ch'},
             }}
             noValidate
             autoComplete="off"

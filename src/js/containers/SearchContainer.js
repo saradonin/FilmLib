@@ -1,4 +1,4 @@
-import {Search} from "../components/Search/Search";
+import Search from "../components/Search/Search";
 import {connect} from "react-redux";
 import {setSearchResults} from "../redux/actions";
 

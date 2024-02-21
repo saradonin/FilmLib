@@ -5,19 +5,22 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {Grid} from "@mui/material";
+import {Grid } from "@mui/material";
 import { Link } from 'react-router-dom';
+import RatingWidget from "../Movie/RatingWidget";
 
-export const SingleResult = ({result}) => {
+export default function SingleResult ({result}) {
     return (
         <Grid item xs={2.4}>
             <Card sx={{maxWidth: 216}} >
+                <Link to={`/title/${result.imdbID}`}>
                 <CardMedia
                     component="img"
-                    alt="poster"
+                    alt={`${result.Title}`}
                     height="312"
                     image={result.Poster}
                 />
+                </Link>
                 <CardContent>
                     <Typography gutterBottom variant="body1" component={Link} to={`/title/${result.imdbID}`}>
                         {result.Title}
@@ -26,8 +29,10 @@ export const SingleResult = ({result}) => {
                         {result.Year}
                     </Typography>
                 </CardContent>
+
                 <CardActions>
-                    <Button size="small">Rate</Button>
+                    <RatingWidget/>
+
                     <Button size="small">To watch</Button>
                 </CardActions>
             </Card>

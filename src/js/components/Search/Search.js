@@ -1,10 +1,9 @@
 import React from "react";
-import {SearchBar} from "./SearchBar";
-import {SearchResults} from "./SearchResults";
+import SearchBar from "./SearchBar";
+import SearchResults from "./SearchResults";
 import Container from '@mui/material/Container';
 
-export const Search = ({results, onSearch}) => {
-
+export default function Search ({results, onSearch}) {
     return (
         <>
             <Container maxWidth="lg">

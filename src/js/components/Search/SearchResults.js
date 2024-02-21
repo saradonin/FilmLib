@@ -1,8 +1,8 @@
 import React from "react";
-import {SingleResult} from "./SingleResult";
+import SingleResult from "./SingleResult";
 import {Grid} from "@mui/material";
 
-export const SearchResults = ({results}) => {
+export default function SearchResults ({results}) {
 
     return (
         <>
