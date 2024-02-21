@@ -3,11 +3,11 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {Grid } from "@mui/material";
 import { Link } from 'react-router-dom';
 import RatingWidget from "../Movie/RatingWidget";
+import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 
 export default function SingleResult ({result}) {
     return (
@@ -30,10 +30,12 @@ export default function SingleResult ({result}) {
                     </Typography>
                 </CardContent>
 
-                <CardActions>
+                <CardActions sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                }}>
                     <RatingWidget/>
-
-                    <Button size="small">To watch</Button>
+                    <AddToQueueIcon sx={{color: 'inherit'}}/>
                 </CardActions>
             </Card>
         </Grid>
