@@ -2,13 +2,13 @@ import React from "react";
 import {Grid} from "@mui/material";
 import SingleMovieCard from "../Movie/SingleMovieCard";
 
-export default function SearchResults ({results}) {
+export default function Watchlist ({watchlist}) {
 
     return (
         <>
             <Grid container spacing={2}>
-                {results && results.map((result) => (
-                        <SingleMovieCard key={result.imdbID} movie={result}/>
+                {watchlist && watchlist.map((movie) => (
+                    <SingleMovieCard key={movie.imdbID} movie={movie}/>
                 ))}
             </Grid>
         </>

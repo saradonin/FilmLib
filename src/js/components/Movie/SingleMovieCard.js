@@ -7,31 +7,27 @@ import Typography from '@mui/material/Typography';
 import {Grid } from "@mui/material";
 import { Link } from 'react-router-dom';
 import RatingWidget from "../Movie/RatingWidget";
-import AddToQueueIcon from '@mui/icons-material/AddToQueue';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import {useDispatch} from "react-redux";
-import {addToWatchlist} from "../../redux/actions";
 import AddToWatchlistButton from "../Movie/AddToWatchlistButton";
+import RemoveFromWatchlistButton from "./RemoveFromWatchlistButton";
 
-export default function SingleResult ({result}) {
+export default function SingleMovieCard ({movie}) {
     return (
         <Grid item xs={2.4}>
             <Card sx={{maxWidth: 216}} >
-                <Link to={`/title/${result.imdbID}`}>
+                <Link to={`/title/${movie.imdbID}`}>
                 <CardMedia
                     component="img"
-                    alt={`${result.Title}`}
+                    alt={`${movie.Title}`}
                     height="312"
-                    image={result.Poster}
+                    image={movie.Poster}
                 />
                 </Link>
                 <CardContent>
-                    <Typography gutterBottom variant="body1" component={Link} to={`/title/${result.imdbID}`}>
-                        {result.Title}
+                    <Typography gutterBottom variant="body1" component={Link} to={`/title/${movie.imdbID}`}>
+                        {movie.Title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {result.Year}
+                        {movie.Year}
                     </Typography>
                 </CardContent>
 
@@ -39,9 +35,9 @@ export default function SingleResult ({result}) {
                     display: 'flex',
                     justifyContent: 'space-between',
                 }}>
-                    <RatingWidget/>
-                    <AddToWatchlistButton/>
-
+                    <RatingWidget movie={movie}/>
+                    <AddToWatchlistButton movie={movie}/>
+                    <RemoveFromWatchlistButton movie={movie}/>
                 </CardActions>
             </Card>
         </Grid>

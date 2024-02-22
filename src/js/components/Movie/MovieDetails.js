@@ -6,11 +6,11 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
 import RatingWidget from "./RatingWidget";
 import AddToWatchlistButton from "./AddToWatchlistButton";
+import RemoveFromWatchlistButton from "./RemoveFromWatchlistButton";
 
 export default function MovieDetails () {
     const [movie, setMovie] = useState({})
@@ -20,7 +20,6 @@ export default function MovieDetails () {
         const fetchMovie = async () => {
             const newMovie = await getMovieById(movieId)
             setMovie(newMovie)
-            console.log(newMovie)
         }
         fetchMovie()
     }, [movieId]);
@@ -56,8 +55,9 @@ export default function MovieDetails () {
                                 </List>
                         </CardContent>
                         <CardActions>
-                            <RatingWidget/>
-                            <AddToWatchlistButton/>
+                            <RatingWidget movie={movie}/>
+                            <AddToWatchlistButton movie={movie}/>
+                            <RemoveFromWatchlistButton movie={movie}/>
                         </CardActions>
                     </Box>
                 </Card>

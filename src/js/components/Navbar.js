@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 const pages = [
     {text: 'Search', url: "/search"},
-    {text: 'Watched', url: "/watched"},
+    {text: 'Rated', url: "/rated"},
     {text: 'Watchlist', url: "/watchlist"}
 ];
 
