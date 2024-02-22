@@ -9,8 +9,12 @@ import { Link } from 'react-router-dom';
 
 import WatchListButtons from "../Watchlist/WatchListButtons";
 import RatingWidget from "../Rated/RatingWidget";
+import {useSelector} from "react-redux";
 
 export default function SingleMovieCard ({movie}) {
+    const watchlist = useSelector(state => state.watchlist)
+    const isMovieInWatchlist = watchlist.some(item => item.imdbID === movie.imdbID)
+
     return (
         <Grid item xs={2.4}>
             <Card sx={{maxWidth: 216}} >
@@ -36,7 +40,7 @@ export default function SingleMovieCard ({movie}) {
                     justifyContent: 'space-between',
                 }}>
                     <RatingWidget movie={movie}/>
-                    <WatchListButtons movie={movie}/>
+                    <WatchListButtons movie={movie} isMovieInWatchlist={isMovieInWatchlist}/>
                 </CardActions>
             </Card>
         </Grid>

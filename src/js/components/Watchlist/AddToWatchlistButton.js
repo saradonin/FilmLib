@@ -9,13 +9,13 @@ import {addToWatchlist} from "../../redux/actions";
 export default function AddToWatchlistButton ({movie}) {
     const dispatch = useDispatch()
 
-    const handleAddToWatchList = (movie) => {
+    const handleAddToWatchList = () => {
         dispatch(addToWatchlist(movie))
     }
 
     return (
         <Tooltip title="Add to watchlist">
-            <IconButton onClick={() => handleAddToWatchList(movie)}>
+            <IconButton onClick={handleAddToWatchList}>
                 <AddToQueueIcon sx={{color: 'green'}}/>
             </IconButton>
         </Tooltip>
