@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Watchlist from "../components/Watchlist/Watchlist";
+import Watchlist from "../components/Watchlist/WatchlistResults";
 
 
 const mapStateToProps = (state) => {

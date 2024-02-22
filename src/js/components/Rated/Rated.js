@@ -1,16 +1,14 @@
 import React from "react";
-import {Grid} from "@mui/material";
-import SingleMovieCard from "../Movie/SingleMovieCard";
+import Container from "@mui/material/Container";
+import RatedResults from "./RatedResults";
 
 export default function Rated ({rated}) {
 
     return (
         <>
-            <Grid container spacing={2}>
-                {rated && rated.map((movie) => (
-                    <SingleMovieCard key={movie.imdbID} movie={movie}/>
-                ))}
-            </Grid>
+            <Container maxWidth="lg">
+                <RatedResults rated={rated}/>
+            </Container>
         </>
     )
 }

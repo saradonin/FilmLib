@@ -1,16 +1,13 @@
 import React from "react";
-import {Grid} from "@mui/material";
-import SingleMovieCard from "../Movie/SingleMovieCard";
+import Container from '@mui/material/Container';
+import WatchlistResults from "./WatchlistResults";
 
 export default function Watchlist ({watchlist}) {
-
     return (
         <>
-            <Grid container spacing={2}>
-                {watchlist && watchlist.map((movie) => (
-                    <SingleMovieCard key={movie.imdbID} movie={movie}/>
-                ))}
-            </Grid>
+            <Container maxWidth="lg">
+                <WatchlistResults watchlist={watchlist}/>
+            </Container>
         </>
     )
 }
