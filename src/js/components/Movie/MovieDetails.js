@@ -10,10 +10,14 @@ import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
 import RatingWidget from "../Rated/RatingWidget";
 import WatchListButtons from "../Watchlist/WatchListButtons";
+import {useSelector} from "react-redux";
 
 export default function MovieDetails () {
     const [movie, setMovie] = useState({})
     const {movieId} = useParams()
+
+    const watchlist = useSelector(state => state.watchlist)
+    const isMovieInWatchlist = watchlist.some(item => item.imdbID === movie.imdbID)
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -55,7 +59,7 @@ export default function MovieDetails () {
                         </CardContent>
                         <CardActions>
                             <RatingWidget movie={movie}/>
-                            <WatchListButtons movie={movie}/>
+                            <WatchListButtons movie={movie} isMovieInWatchlist={isMovieInWatchlist}/>
                         </CardActions>
                     </Box>
                 </Card>
