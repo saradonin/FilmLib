@@ -6,7 +6,7 @@ const search = (state = [], {type, payload}) => {
         case (SET_SEARCH_RESULTS):
             return payload !== undefined ? payload : state
         default:
-            return []
+            return state
     }
 }
 

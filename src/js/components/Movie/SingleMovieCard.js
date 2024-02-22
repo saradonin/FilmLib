@@ -7,8 +7,7 @@ import Typography from '@mui/material/Typography';
 import {Grid } from "@mui/material";
 import { Link } from 'react-router-dom';
 import RatingWidget from "../Movie/RatingWidget";
-import AddToWatchlistButton from "../Movie/AddToWatchlistButton";
-import RemoveFromWatchlistButton from "./RemoveFromWatchlistButton";
+import WatchListButtons from "../Watchlist/WatchListButtons";
 
 export default function SingleMovieCard ({movie}) {
     return (
@@ -36,8 +35,7 @@ export default function SingleMovieCard ({movie}) {
                     justifyContent: 'space-between',
                 }}>
                     <RatingWidget movie={movie}/>
-                    <AddToWatchlistButton movie={movie}/>
-                    <RemoveFromWatchlistButton movie={movie}/>
+                    <WatchListButtons movie={movie}/>
                 </CardActions>
             </Card>
         </Grid>

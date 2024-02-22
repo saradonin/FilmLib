@@ -9,8 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
 import RatingWidget from "./RatingWidget";
-import AddToWatchlistButton from "./AddToWatchlistButton";
-import RemoveFromWatchlistButton from "./RemoveFromWatchlistButton";
+import WatchListButtons from "../Watchlist/WatchListButtons";
 
 export default function MovieDetails () {
     const [movie, setMovie] = useState({})
@@ -56,8 +55,7 @@ export default function MovieDetails () {
                         </CardContent>
                         <CardActions>
                             <RatingWidget movie={movie}/>
-                            <AddToWatchlistButton movie={movie}/>
-                            <RemoveFromWatchlistButton movie={movie}/>
+                            <WatchListButtons movie={movie}/>
                         </CardActions>
                     </Box>
                 </Card>
