@@ -8,6 +8,11 @@ import {Grid } from "@mui/material";
 import { Link } from 'react-router-dom';
 import RatingWidget from "../Movie/RatingWidget";
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import {useDispatch} from "react-redux";
+import {addToWatchlist} from "../../redux/actions";
+import AddToWatchlistButton from "../Movie/AddToWatchlistButton";
 
 export default function SingleResult ({result}) {
     return (
@@ -35,7 +40,8 @@ export default function SingleResult ({result}) {
                     justifyContent: 'space-between',
                 }}>
                     <RatingWidget/>
-                    <AddToQueueIcon sx={{color: 'inherit'}}/>
+                    <AddToWatchlistButton/>
+
                 </CardActions>
             </Card>
         </Grid>

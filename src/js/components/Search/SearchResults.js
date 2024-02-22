@@ -11,7 +11,6 @@ export default function SearchResults ({results}) {
                         <SingleResult key={result.imdbID} result={result}/>
                 ))}
             </Grid>
-
         </>
     )
 }
