@@ -18,7 +18,7 @@ export const addToWatchlist = (movie) => {
     }
 }
 
-export const removeFromWatchList = (movie) => {
+export const removeFromWatchlist = (movie) => {
     return {
         type: REMOVE_FROM_WATCHLIST,
         payload: movie
