@@ -4,9 +4,9 @@ import MovieDetails from "./Movie/MovieDetails";
 import {HashRouter, Route, Routes} from "react-router-dom";
 import Navbar from "./Navbar";
 import store from "../redux/store";
-import SearchContainer from "../containers/SearchContainer";
-import WatchlistContainer from "../containers/WatchlistContainer";
-import RatedContainer from "../containers/RatedContainer";
+import Rated from "./Rated/Rated";
+import Watchlist from "./Watchlist/Watchlist";
+import Search from "./Search/Search";
 
 export default function Main () {
     return (
@@ -15,11 +15,11 @@ export default function Main () {
                 <HashRouter>
                     <Navbar/>
                     <Routes>
-                        <Route path={"/"} element={<SearchContainer/>}/>
-                        <Route path={"/search"} element={<SearchContainer/>}/>
+                        <Route path={"/"} element={<Search/>}/>
+                        <Route path={"/search"} element={<Search/>}/>
                         <Route path={"/title/:movieId"} element={<MovieDetails/>}/>
-                        <Route path={"/watchlist"} element={<WatchlistContainer/>}/>
-                        <Route path={"/rated"} element={<RatedContainer/>}/>
+                        <Route path={"/watchlist"} element={<Watchlist/>}/>
+                        <Route path={"/rated"} element={<Rated/>}/>
                     </Routes>
                 </HashRouter>
             </Provider>

@@ -5,8 +5,6 @@ import {useDispatch} from "react-redux";
 import {removeFromWatchlist} from "../../redux/actions";
 import RemoveFromQueueIcon from '@mui/icons-material/RemoveFromQueue';
 
-
-
 export default function RemoveFromWatchlistButton({movie}) {
     const dispatch = useDispatch()
 
