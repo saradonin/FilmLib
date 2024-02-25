@@ -28,13 +28,13 @@ const rated = (state = [], {type, payload}) => {
     switch (type) {
         case (ADD_TO_RATED):
             if (!state.find(movie => movie.imdbID === payload.movie.imdbID)) {
-                return [...state, {...payload.movie, rating: payload.rating}]
+                return [...state, {...payload.movie, userRating: payload.rating}]
             }
             return state
         case (UPDATE_RATING):
             return state.map(movie => {
                 if (movie.imdbID === payload.movie.imdbID) {
-                    return { ...movie, rating: payload.rating}
+                    return { ...movie, userRating: payload.rating}
                 }
                 return movie
             })

@@ -1,14 +1,26 @@
 import {Rating} from "@mui/material";
 import * as React from "react";
+import {useDispatch} from "react-redux";
+import {addToRated, removeFromWatchlist} from "../../redux/actions";
+import {useState} from "react";
 
-export default function RatingWidget () {
+export default function RatingWidget({movie}) {
+    const [value, setValue] = useState(movie.userRating ? movie.userRating : 0)
+    const dispatch = useDispatch()
+
+    const handleRating = (e, newValue) => {
+        e.preventDefault()
+        setValue(newValue)
+        dispatch(addToRated(movie, newValue))
+        dispatch(removeFromWatchlist(movie))
+    }
+
+
     return (
         <Rating
             name="simple-controlled"
-            value={3}
-            onChange={(event, newValue) => {
-                setValue(newValue);
-            }}
+            value={value}
+            onChange={handleRating}
         />
     )
 }
