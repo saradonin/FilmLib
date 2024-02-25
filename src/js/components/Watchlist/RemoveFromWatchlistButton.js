@@ -1,9 +1,9 @@
 import React from "react";
-import Tooltip from "@mui/material/Tooltip";
-import IconButton from "@mui/material/IconButton";
-import {useDispatch} from "react-redux";
-import {removeFromWatchlist} from "../../redux/actions";
+import { Tooltip, IconButton } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { removeFromWatchlist } from "../../redux/actions";
 import RemoveFromQueueIcon from '@mui/icons-material/RemoveFromQueue';
+
 
 export default function RemoveFromWatchlistButton({movie}) {
     const dispatch = useDispatch()

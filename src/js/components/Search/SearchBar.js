@@ -1,8 +1,7 @@
-import React, {useState} from "react";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import {searchMoviesByTitle} from "../../api/movies";
+import React, { useState } from "react";
+import { Box, TextField, Button } from "@mui/material";
+import { searchMoviesByTitle } from "../../api/movies";
+
 
 export default function SearchBar({onSearch}) {
     const [title, setTitle] = useState("")

@@ -1,9 +1,9 @@
 import React from "react";
-import Tooltip from "@mui/material/Tooltip";
-import IconButton from "@mui/material/IconButton";
+import { Tooltip, IconButton } from "@mui/material";
 import AddToQueueIcon from "@mui/icons-material/AddToQueue";
-import {useDispatch} from "react-redux";
-import {addToWatchlist} from "../../redux/actions";
+import { useDispatch } from "react-redux";
+import { addToWatchlist } from "../../redux/actions";
+
 
 
 export default function AddToWatchlistButton ({movie}) {

@@ -1,16 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {getMovieById} from "../../api/movies";
-import {List, ListItem, ListItemText} from "@mui/material";
-import {useParams} from "react-router-dom";
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Box from "@mui/material/Box";
+import React, { useEffect, useState } from "react";
+import { getMovieById } from "../../api/movies";
+import { List, ListItem, ListItemText, Card, CardActions, CardContent, CardMedia, Typography, Box } from "@mui/material";
+import { useParams } from "react-router-dom";
 import RatingWidget from "../Rated/RatingWidget";
 import WatchListButtons from "../Watchlist/WatchListButtons";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+
 
 export default function MovieDetails () {
     const [movie, setMovie] = useState({})
@@ -59,7 +54,7 @@ export default function MovieDetails () {
                                     <ListItemText primary={`Cast: ${movie.Actors}`} />
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemText secondary={movie.Plot} />
+                                    <ListItemText primary="Plot: " secondary={movie.Plot} />
                                 </ListItem>
                             </List>
                         </CardContent>

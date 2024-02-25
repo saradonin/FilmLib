@@ -1,8 +1,7 @@
-import Box from "@mui/material/Box";
-import {Grid} from "@mui/material";
-import SingleMovieCard from "../Movie/SingleMovieCard";
-import Typography from "@mui/material/Typography";
 import React from "react";
+import { Grid, Typography, Box } from "@mui/material";
+import SingleMovieCard from "../Movie/SingleMovieCard";
+
 
 export default function RatedResults ({rated}) {
 

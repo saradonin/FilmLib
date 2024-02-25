@@ -1,8 +1,7 @@
-import {Rating} from "@mui/material";
-import * as React from "react";
-import {useDispatch} from "react-redux";
-import {addToRated, removeFromWatchlist} from "../../redux/actions";
-import {useState} from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToRated, removeFromWatchlist } from "../../redux/actions";
+import { Rating } from "@mui/material";
 
 export default function RatingWidget({movie}) {
     const [value, setValue] = useState(movie.userRating ? movie.userRating : 0)

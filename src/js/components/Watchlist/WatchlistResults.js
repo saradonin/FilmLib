@@ -1,8 +1,7 @@
 import React from "react";
-import {Grid} from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import SingleMovieCard from "../Movie/SingleMovieCard";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+
 
 export default function WatchlistResults ({watchlist}) {
 
