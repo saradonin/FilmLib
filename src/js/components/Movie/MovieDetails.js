@@ -45,17 +45,23 @@ export default function MovieDetails () {
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
                         <CardContent>
-                                <List >
-                                    <ListItem>
-                                        <ListItemText>Year: {movie.Year}</ListItemText>
-                                    </ListItem>
-                                    <ListItem>
-                                        <ListItemText>Director: {movie.Director}</ListItemText>
-                                    </ListItem>
-                                    <ListItem>
-                                        <ListItemText>{movie.Plot}</ListItemText>
-                                    </ListItem>
-                                </List>
+                            <List>
+                                <ListItem>
+                                    <ListItemText primary={`Year: ${movie.Year}`} />
+                                </ListItem>
+                                <ListItem>
+                                    <ListItemText primary={`Genre: ${movie.Genre}`} />
+                                </ListItem>
+                                <ListItem>
+                                    <ListItemText primary={`Director: ${movie.Director}`} />
+                                </ListItem>
+                                <ListItem>
+                                    <ListItemText primary={`Cast: ${movie.Actors}`} />
+                                </ListItem>
+                                <ListItem>
+                                    <ListItemText secondary={movie.Plot} />
+                                </ListItem>
+                            </List>
                         </CardContent>
                         <CardActions>
                             <RatingWidget movie={movie}/>
