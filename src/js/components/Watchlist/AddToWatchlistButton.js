@@ -16,7 +16,7 @@ export default function AddToWatchlistButton ({movie}) {
     return (
         <Tooltip title="Add to watchlist">
             <IconButton onClick={handleAddToWatchList}>
-                <AddToQueueIcon sx={{color: 'green'}}/>
+                <AddToQueueIcon sx={{color: '#388e3c'}}/>
             </IconButton>
         </Tooltip>
     )

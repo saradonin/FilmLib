@@ -15,7 +15,7 @@ export default function RemoveFromWatchlistButton({movie}) {
     return (
         <Tooltip title="Remove from watchlist">
             <IconButton onClick={handleRemoveFromWatchlist}>
-                <RemoveFromQueueIcon sx={{color: 'red'}}/>
+                <RemoveFromQueueIcon sx={{color: '#d32f2f'}}/>
             </IconButton>
         </Tooltip>
     )
