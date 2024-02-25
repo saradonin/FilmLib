@@ -6,7 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Grid } from "@mui/material";
 import { Link } from 'react-router-dom';
-
 import WatchListButtons from "../Watchlist/WatchListButtons";
 import RatingWidget from "../Rated/RatingWidget";
 import {useSelector} from "react-redux";
