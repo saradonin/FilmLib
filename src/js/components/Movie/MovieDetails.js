@@ -8,19 +8,29 @@ import { useSelector } from "react-redux";
 
 
 export default function MovieDetails () {
-    const [movie, setMovie] = useState({})
     const {movieId} = useParams()
+    const [movie, setMovie] = useState({})
 
     const watchlist = useSelector(state => state.watchlist)
-    const isMovieInWatchlist = watchlist.some(item => item.imdbID === movie.imdbID)
+    const isMovieInWatchlist = watchlist.some(item => item.imdbID === movieId)
 
+    const rated = useSelector(state => state.rated)
+    const isMovieRated = (movieId) => {
+        return rated.some(item => item.imdbID === movieId);
+    }
+
+
+    // TODO rating not saving
     useEffect(() => {
         const fetchMovie = async () => {
-            const newMovie = await getMovieById(movieId)
-            setMovie(newMovie)
-        }
-        fetchMovie()
-    }, [movieId]);
+            const fetchedMovie = await getMovieById(movieId);
+            const ratedMovie = rated.find(item => item.imdbID === movieId);
+            const newMovie = ratedMovie ? { ...fetchedMovie, userRating: ratedMovie.userRating } : fetchedMovie;
+            setMovie(newMovie);
+        };
+        fetchMovie();
+    }, [movieId, rated]);
+    
 
 
     return (
@@ -34,7 +44,7 @@ export default function MovieDetails () {
                 <Card sx={{ display: 'flex', maxWidth: '90%', maxHeight: 600 }}>
                     <CardMedia
                         component="img"
-                        sx={{ width: 240, height: 360 }} // Adjust image width as needed
+                        sx={{ width: 240, height: 360 }}
                         image={movie.Poster}
                         alt={`${movie.Title}`}
                     />
@@ -59,7 +69,7 @@ export default function MovieDetails () {
                             </List>
                         </CardContent>
                         <CardActions>
-                            <RatingWidget movie={movie}/>
+                            <RatingWidget movie={isMovieRated(movieId) ? rated.find(item => item.imdbID === movieId) : movie}/>
                             <WatchListButtons movie={movie} isMovieInWatchlist={isMovieInWatchlist}/>
                         </CardActions>
                     </Box>
