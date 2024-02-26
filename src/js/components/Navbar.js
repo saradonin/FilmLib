@@ -13,12 +13,12 @@ import CameraRollIcon from '@mui/icons-material/CameraRoll';
 import { Link } from 'react-router-dom';
 
 const pages = [
-    {text: 'Search', url: "/search"},
-    {text: 'Rated', url: "/rated"},
-    {text: 'Watchlist', url: "/watchlist"}
+    { text: 'Search', url: "/search" },
+    { text: 'Rated', url: "/rated" },
+    { text: 'Watchlist', url: "/watchlist" }
 ];
 
-export default function Navbar () {
+export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
@@ -41,7 +41,7 @@ export default function Navbar () {
                         href=""
                         sx={{
                             mr: 2,
-                            display: {xs: 'none', md: 'flex'},
+                            display: { xs: 'none', md: 'flex' },
                             fontFamily: 'sans-serif',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -52,7 +52,7 @@ export default function Navbar () {
                         FILMLIB
                     </Typography>
 
-                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -61,7 +61,7 @@ export default function Navbar () {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -78,7 +78,7 @@ export default function Navbar () {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: {xs: 'block', md: 'none'},
+                                display: { xs: 'block', md: 'none' },
                             }}
                         >
                             {pages.map((page) => (
@@ -88,7 +88,7 @@ export default function Navbar () {
                             ))}
                         </Menu>
                     </Box>
-                    <CameraRollIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
+                    <CameraRollIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
                         variant="h5"
                         noWrap
@@ -96,7 +96,7 @@ export default function Navbar () {
                         href="#/"
                         sx={{
                             mr: 2,
-                            display: {xs: 'flex', md: 'none'},
+                            display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
                             fontFamily: 'sans-serif',
                             fontWeight: 700,
@@ -107,13 +107,13 @@ export default function Navbar () {
                     >
                         FILMLIB
                     </Typography>
-                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page.text}
                                 onClick={handleCloseNavMenu}
                                 component={Link} to={page.url}
-                                sx={{my: 2, color: 'white', display: 'block'}}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page.text}
                             </Button>

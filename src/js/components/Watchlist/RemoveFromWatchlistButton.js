@@ -5,7 +5,7 @@ import { removeFromWatchlist } from "../../redux/actions";
 import RemoveFromQueueIcon from '@mui/icons-material/RemoveFromQueue';
 
 
-export default function RemoveFromWatchlistButton({movie}) {
+export default function RemoveFromWatchlistButton({ movie }) {
     const dispatch = useDispatch()
 
     const handleRemoveFromWatchlist = () => {
@@ -15,7 +15,7 @@ export default function RemoveFromWatchlistButton({movie}) {
     return (
         <Tooltip title="Remove from watchlist">
             <IconButton onClick={handleRemoveFromWatchlist}>
-                <RemoveFromQueueIcon sx={{color: '#d32f2f'}}/>
+                <RemoveFromQueueIcon sx={{ color: '#d32f2f' }} />
             </IconButton>
         </Tooltip>
     )

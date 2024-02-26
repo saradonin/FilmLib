@@ -5,13 +5,14 @@ import { useParams } from "react-router-dom";
 import RatingWidget from "../Rated/RatingWidget";
 import WatchListButtons from "../Watchlist/WatchListButtons";
 import { useSelector } from "react-redux";
+import { watchlistSelector } from "../../redux/selectors";
 
 
-export default function MovieDetails () {
-    const {movieId} = useParams()
+export default function MovieDetails() {
+    const { movieId } = useParams()
     const [movie, setMovie] = useState({})
 
-    const watchlist = useSelector(state => state.watchlist)
+    const watchlist = useSelector(watchlistSelector)
     const isMovieInWatchlist = watchlist.some(item => item.imdbID === movieId)
 
     const rated = useSelector(state => state.rated)
@@ -30,11 +31,11 @@ export default function MovieDetails () {
         };
         fetchMovie();
     }, [movieId, rated]);
-    
+
 
 
     return (
-        <Box sx={{ margin: 5}}>
+        <Box sx={{ margin: 5 }}>
             <Box>
                 <Typography gutterBottom variant="h4" component="div">
                     {movie.Title}
@@ -69,8 +70,8 @@ export default function MovieDetails () {
                             </List>
                         </CardContent>
                         <CardActions>
-                            <RatingWidget movie={isMovieRated(movieId) ? rated.find(item => item.imdbID === movieId) : movie}/>
-                            <WatchListButtons movie={movie} isMovieInWatchlist={isMovieInWatchlist}/>
+                            <RatingWidget movie={isMovieRated(movieId) ? rated.find(item => item.imdbID === movieId) : movie} />
+                            <WatchListButtons movie={movie} isMovieInWatchlist={isMovieInWatchlist} />
                         </CardActions>
                     </Box>
                 </Card>

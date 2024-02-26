@@ -3,7 +3,7 @@ import { Box, TextField, Button } from "@mui/material";
 import { searchMoviesByTitle } from "../../api/movies";
 
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar({ onSearch }) {
     const [title, setTitle] = useState("")
 
     const handleChange = (e) => {
@@ -29,7 +29,7 @@ export default function SearchBar({onSearch}) {
                 paddingBottom: '25px',
                 display: 'flex',
                 justifyContent: 'center',
-                '& > :not(style)': {m: 1, width: '25ch'},
+                '& > :not(style)': { m: 1, width: '25ch' },
             }}
             noValidate
             autoComplete="off"

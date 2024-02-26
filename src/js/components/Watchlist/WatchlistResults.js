@@ -3,7 +3,7 @@ import { Grid, Typography, Box } from "@mui/material";
 import SingleMovieCard from "../Movie/SingleMovieCard";
 
 
-export default function WatchlistResults ({watchlist}) {
+export default function WatchlistResults({ watchlist }) {
 
     return (
         <Box minHeight="75vh" display="flex" alignItems="center" justifyContent="center">

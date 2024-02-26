@@ -28,7 +28,7 @@ export const removeFromWatchlist = (movie) => {
 export const addToRated = (movie, rating) => {
     return {
         type: ADD_TO_RATED,
-        payload: {movie, rating}
+        payload: { movie, rating }
     }
 }
 
@@ -36,7 +36,7 @@ export const addToRated = (movie, rating) => {
 export const updateRating = (movie, rating) => {
     return {
         type: UPDATE_RATING,
-        payload: {movie, rating}
+        payload: { movie, rating }
     }
 }
 

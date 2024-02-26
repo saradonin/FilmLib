@@ -1,7 +1,7 @@
-import {ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SET_SEARCH_RESULTS, UPDATE_RATING} from "./actions";
-import {combineReducers} from "redux";
+import { ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SET_SEARCH_RESULTS, UPDATE_RATING } from "./actions";
+import { combineReducers } from "redux";
 
-const search = (state = [], {type, payload}) => {
+const search = (state = [], { type, payload }) => {
     switch (type) {
         case (SET_SEARCH_RESULTS):
             return payload !== undefined ? payload : state
@@ -10,7 +10,7 @@ const search = (state = [], {type, payload}) => {
     }
 }
 
-const watchlist = (state = [], {type, payload}) => {
+const watchlist = (state = [], { type, payload }) => {
     switch (type) {
         case (ADD_TO_WATCHLIST):
             if (!state.find(movie => movie.imdbID === payload.imdbID)) {
@@ -24,17 +24,17 @@ const watchlist = (state = [], {type, payload}) => {
     }
 }
 
-const rated = (state = [], {type, payload}) => {
+const rated = (state = [], { type, payload }) => {
     switch (type) {
         case (ADD_TO_RATED):
             if (!state.find(movie => movie.imdbID === payload.movie.imdbID)) {
-                return [...state, {...payload.movie, userRating: payload.rating}]
+                return [...state, { ...payload.movie, userRating: payload.rating }]
             }
             return state
         case (UPDATE_RATING):
             return state.map(movie => {
                 if (movie.imdbID === payload.movie.imdbID) {
-                    return { ...movie, userRating: payload.rating}
+                    return { ...movie, userRating: payload.rating }
                 }
                 return movie
             })
