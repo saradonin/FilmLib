@@ -12,8 +12,11 @@ export default function OrderBySelect({ orderBy, setOrderBy }) {
             minWidth: 120,
             paddingTop: '25px',
             paddingBottom: '25px',
+            display: 'flex',
+            justifyContent: 'end',
         }} >
-            <FormControl fullWidth size="small">
+            <FormControl size="small"
+                sx={{ minWidth: 216 }}>
                 <InputLabel id="demo-simple-select-label">Order by ...</InputLabel>
                 <Select
                     labelId="order-by-select-label"
