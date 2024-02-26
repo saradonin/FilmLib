@@ -25,3 +25,4 @@ node_modules/
 ### Other ###
 .test/
 .solution
+src/js/api/constants.js
