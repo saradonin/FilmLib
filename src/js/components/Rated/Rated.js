@@ -8,6 +8,7 @@ import OrderBySelect from "../Form/OrderBySelect";
 
 export default function Rated() {
     const [orderBy, setOrderBy] = useState('');
+    
     const rated = useSelector(state => ratedSelector(state, orderBy));
 
     return (
