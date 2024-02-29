@@ -1,10 +1,20 @@
-import { ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SET_SEARCH_RESULTS, UPDATE_RATING } from "./actions";
+import { SEARCH_START, SEARCH_ERROR, SEARCH_SET_RESULTS, ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, UPDATE_RATING } from "./actions";
 import { combineReducers } from "redux";
 
-const search = (state = [], { type, payload }) => {
+const searchInitialState = {
+    results: [],
+    loading: false,
+    error: ""
+}
+
+const search = (state = searchInitialState, { type, payload }) => {
     switch (type) {
-        case (SET_SEARCH_RESULTS):
-            return payload !== undefined ? payload : state
+        case (SEARCH_START):
+            return { loading: true, error: "", results: [] }
+        case (SEARCH_SET_RESULTS):
+            return { loading: false, error: "", results: payload }
+        case (SEARCH_ERROR):
+            return { loading: false, error: payload, results: [...state.results] }
         default:
             return state
     }

@@ -33,7 +33,7 @@ export default function Navbar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <CameraRollIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <CameraRollIcon sx={{ display: { xs: 'none', md: 'flex', zIndex: 9998}, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap

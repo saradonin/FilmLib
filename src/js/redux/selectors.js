@@ -1,4 +1,5 @@
-export const searchSelector = state => state.search
+export const searchSelector = state => state.search.results
+export const loadingSelector = state => state.search.loading
 
 const sortByOrder = (array, orderBy) => {
     

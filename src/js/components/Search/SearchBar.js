@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Box, TextField, Button } from "@mui/material";
-import { searchMoviesByTitle } from "../../api/movies";
+import { fetchSearchResults } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar() {
+    const dispatch = useDispatch()
     const [title, setTitle] = useState("")
 
     const handleChange = (e) => {
         setTitle(e.target.value)
     }
 
-    const handleSearch = async () => {
-        const result = await searchMoviesByTitle(title)
-        onSearch(result)
+    const handleSearch = () => {
+        dispatch(fetchSearchResults(title))
         setTitle("")
     }
 
