@@ -2,7 +2,7 @@ export const searchSelector = state => state.search.results
 export const loadingSelector = state => state.search.loading
 
 const sortByOrder = (array, orderBy) => {
-    
+
     const getYear = (yearAsString) => {
         return parseInt(yearAsString.substring(0, 4))
     }
