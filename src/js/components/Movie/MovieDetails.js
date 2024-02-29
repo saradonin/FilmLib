@@ -1,39 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { getMovieById } from "../../api/movies";
+import React from "react";
 import { List, ListItem, ListItemText, Card, CardActions, CardContent, CardMedia, Typography, Box } from "@mui/material";
-import { useParams } from "react-router-dom";
 import RatingWidget from "../Rated/RatingWidget";
 import WatchListButtons from "../Watchlist/WatchListButtons";
-import { useSelector } from "react-redux";
-import { watchlistSelector } from "../../redux/selectors";
 
 
-export default function MovieDetails() {
-    const { movieId } = useParams()
-    const [movie, setMovie] = useState({})
-
-    const watchlist = useSelector(watchlistSelector)
-    const isMovieInWatchlist = watchlist.some(item => item.imdbID === movieId)
-
-    const rated = useSelector(state => state.rated)
-    const isMovieRated = (movieId) => {
-        return rated.some(item => item.imdbID === movieId);
-    }
-
-
-    // TODO rating not saving
-    useEffect(() => {
-        const fetchMovie = async () => {
-            const fetchedMovie = await getMovieById(movieId);
-            const ratedMovie = rated.find(item => item.imdbID === movieId);
-            const newMovie = ratedMovie ? { ...fetchedMovie, userRating: ratedMovie.userRating } : fetchedMovie;
-            setMovie(newMovie);
-        };
-        fetchMovie();
-    }, [movieId, rated]);
-
-
-
+export default function MovieDetails({ movie, isMovieInWatchlist }) {
     return (
         <Box sx={{ margin: 5 }}>
             <Box>
@@ -70,7 +41,7 @@ export default function MovieDetails() {
                             </List>
                         </CardContent>
                         <CardActions>
-                            <RatingWidget movie={isMovieRated(movieId) ? rated.find(item => item.imdbID === movieId) : movie} />
+                            <RatingWidget movie={movie} />
                             <WatchListButtons movie={movie} isMovieInWatchlist={isMovieInWatchlist} />
                         </CardActions>
                     </Box>

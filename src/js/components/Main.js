@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import MovieDetails from "./Movie/MovieDetails";
+import Movie from "./Movie/Movie";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar";
 import { store, persistor } from "../redux/store";
@@ -19,7 +19,7 @@ export default function Main() {
                         <Routes>
                             <Route path={"/"} element={<Search />} />
                             <Route path={"/search"} element={<Search />} />
-                            <Route path={"/title/:movieId"} element={<MovieDetails />} />
+                            <Route path={"/title/:movieId"} element={<Movie />} />
                             <Route path={"/watchlist"} element={<Watchlist />} />
                             <Route path={"/rated"} element={<Rated />} />
                         </Routes>
