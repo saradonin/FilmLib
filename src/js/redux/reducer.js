@@ -1,10 +1,19 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_ERROR, SEARCH_SET_RESULTS, ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, UPDATE_RATING } from "./actions";
+import { FETCH_START, FETCH_SUCCESS, FETCH_ERROR, SEARCH_SET_RESULTS, ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, UPDATE_RATING, SET_MOVIE_DETAILS } from "./actions";
 import { combineReducers } from "redux";
 
 
 const search = (state = [], { type, payload }) => {
     switch (type) {
         case (SEARCH_SET_RESULTS):
+            return payload !== undefined ? payload : state
+        default:
+            return state
+    }
+}
+
+const movieDetails = (state = {}, { type, payload }) => {
+    switch (type) {
+        case (SET_MOVIE_DETAILS):
             return payload !== undefined ? payload : state
         default:
             return state
@@ -62,7 +71,8 @@ const reducer = combineReducers({
     search,
     watchlist,
     rated,
-    fetch
+    fetch,
+    movieDetails,
 })
 
 export default reducer

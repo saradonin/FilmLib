@@ -1,5 +1,6 @@
 export const searchSelector = state => state.search
 export const loadingSelector = state => state.fetch.loading
+export const movieDetailsSelector = state => state.movieDetails
 
 const sortByOrder = (array, orderBy) => {
 

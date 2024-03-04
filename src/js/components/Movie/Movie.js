@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { getMovieById } from "../../api/movies";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { watchlistSelector } from "../../redux/selectors";
+import { useSelector, useDispatch } from "react-redux";
+import { loadingSelector, movieDetailsSelector, watchlistSelector } from "../../redux/selectors";
 import MovieDetails from "./MovieDetails";
 import LoadingOverlay from "../Form/LoadingOverlay";
+import { fetchMovieDetails, updateMovieDetails } from "../../redux/actions";
 
 
 export default function Movie() {
     const { movieId } = useParams()
-    const [movie, setMovie] = useState({})
-    const [isLoading, setIsLoading] = useState(false)
+    const dispatch = useDispatch()
+    const movie = useSelector(movieDetailsSelector)
+    const isLoading = useSelector(loadingSelector)
+
 
     const watchlist = useSelector(watchlistSelector)
     const isMovieInWatchlist = watchlist.some(item => item.imdbID === movieId)
@@ -19,15 +21,9 @@ export default function Movie() {
     const ratedMovie = rated.find(item => item.imdbID === movieId)
     const userRating = ratedMovie ? ratedMovie.userRating : null
 
+
     useEffect(() => {
-        const fetchMovie = async () => {
-            setIsLoading(true)
-            const fetchedMovie = await getMovieById(movieId)
-            setIsLoading(false)
-            const newMovie = { ...fetchedMovie, userRating }
-            setMovie(newMovie)
-        };
-        fetchMovie()
+        const newMovie = dispatch(fetchMovieDetails(movieId))
     }, [movieId])
 
 
