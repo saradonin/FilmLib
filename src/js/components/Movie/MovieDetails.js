@@ -6,7 +6,7 @@ import WatchListButtons from "../Watchlist/WatchListButtons";
 
 export default function MovieDetails({ movie, isMovieInWatchlist }) {
     return (
-            <Card sx={{ display: 'flex', flexDirection: 'column', maxWidth: '90%', maxHeight: 600, padding: 2 , margin: 2}}>
+            <Card sx={{ display: 'flex', flexDirection: 'column', maxHeight: 600, padding: 2 , margin: 3}}>
                 <Box>
                     <Typography gutterBottom variant="h4" component="div">
                         {movie.Title}
@@ -43,9 +43,6 @@ export default function MovieDetails({ movie, isMovieInWatchlist }) {
                                 </ListItem>
                                 <ListItem>
                                     <ListItemText primary="Plot: " secondary={movie.Plot} />
-                                </ListItem>
-                                <ListItem>
-                                    <ListItemText primary="Awards: " secondary={movie.Awards} />
                                 </ListItem>
                             </List>
                         </CardContent>
