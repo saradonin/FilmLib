@@ -1,23 +1,28 @@
-import { SEARCH_START, SEARCH_ERROR, SEARCH_SET_RESULTS, ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, UPDATE_RATING } from "./actions";
+import { FETCH_START, FETCH_SUCCESS, FETCH_ERROR, SEARCH_SET_RESULTS, ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, UPDATE_RATING } from "./actions";
 import { combineReducers } from "redux";
 
-const searchInitialState = {
-    results: [],
-    loading: false,
-    error: ""
-}
 
-const search = (state = searchInitialState, { type, payload }) => {
+const search = (state = [], { type, payload }) => {
     switch (type) {
-        case (SEARCH_START):
-            return { loading: true, error: "", results: [] }
         case (SEARCH_SET_RESULTS):
-            return { loading: false, error: "", results: payload }
-        case (SEARCH_ERROR):
-            return { loading: false, error: payload, results: [...state.results] }
+            return payload !== undefined ? payload : state
         default:
             return state
     }
+}
+
+const fetch = (state = { loading: false, error: '' }, { type, payload }) => {
+    switch (type) {
+        case (FETCH_START):
+            return { loading: true, error: '' }
+        case (FETCH_SUCCESS):
+            return { loading: false, error: '' }
+        case (FETCH_ERROR):
+            return { loading: false, error: payload }
+        default:
+            return { loading: false, error: '' }
+    }
+
 }
 
 const watchlist = (state = [], { type, payload }) => {
@@ -56,7 +61,8 @@ const rated = (state = [], { type, payload }) => {
 const reducer = combineReducers({
     search,
     watchlist,
-    rated
+    rated,
+    fetch
 })
 
 export default reducer
