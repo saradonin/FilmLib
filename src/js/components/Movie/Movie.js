@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { loadingSelector, movieDetailsSelector, watchlistSelector } from "../../redux/selectors";
 import MovieDetails from "./MovieDetails";
 import LoadingOverlay from "../Form/LoadingOverlay";
-import { fetchMovieDetails, updateMovieDetails } from "../../redux/actions";
+import { fetchMovieDetails } from "../../redux/actions";
 
 
 export default function Movie() {
@@ -12,7 +12,6 @@ export default function Movie() {
     const dispatch = useDispatch()
     const movie = useSelector(movieDetailsSelector)
     const isLoading = useSelector(loadingSelector)
-
 
     const watchlist = useSelector(watchlistSelector)
     const isMovieInWatchlist = watchlist.some(item => item.imdbID === movieId)

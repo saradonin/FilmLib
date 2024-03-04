@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,14 +12,16 @@ import MenuItem from '@mui/material/MenuItem';
 import CameraRollIcon from '@mui/icons-material/CameraRoll';
 import { Link } from 'react-router-dom';
 
+
 const pages = [
     { text: 'Search', url: "/search" },
     { text: 'Rated', url: "/rated" },
     { text: 'Watchlist', url: "/watchlist" }
-];
+]
+
 
 export default function Navbar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -33,7 +35,7 @@ export default function Navbar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <CameraRollIcon sx={{ display: { xs: 'none', md: 'flex', zIndex: 9998}, mr: 1 }} />
+                    <CameraRollIcon sx={{ display: { xs: 'none', md: 'flex', zIndex: 9998 }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap

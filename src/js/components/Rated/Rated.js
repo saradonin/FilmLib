@@ -12,11 +12,9 @@ export default function Rated() {
     const rated = useSelector(state => ratedSelector(state, orderBy));
 
     return (
-        <>
             <Container maxWidth="lg">
                 <OrderBySelect orderBy={orderBy} setOrderBy={setOrderBy} />
                 <RatedResults rated={rated} />
             </Container>
-        </>
     )
 }

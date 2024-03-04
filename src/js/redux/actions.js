@@ -87,7 +87,6 @@ export const addToRated = (movie, rating) => {
     }
 }
 
-
 export const updateRating = (movie, rating) => {
     return {
         type: UPDATE_RATING,

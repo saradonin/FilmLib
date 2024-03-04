@@ -2,6 +2,7 @@ import React from "react";
 import { List, ListItem, ListItemText, Card, CardActions, CardContent, CardMedia, Typography, Box, Grid } from "@mui/material";
 import RatingWidget from "../Rated/RatingWidget";
 import WatchListButtons from "../Watchlist/WatchListButtons";
+import { NO_IMAGE_URL } from "./constants";
 
 
 export default function MovieDetails({ movie, isMovieInWatchlist }) {
@@ -18,7 +19,7 @@ export default function MovieDetails({ movie, isMovieInWatchlist }) {
                         <CardMedia
                             component="img"
                             sx={{ width: 240, height: 360 }}
-                            image={movie.Poster}
+                            image={movie.Poster !== "N/A" ? movie.Poster : NO_IMAGE_URL}
                             alt={`${movie.Title}`}
                         />
                     </Box>

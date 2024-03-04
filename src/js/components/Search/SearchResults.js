@@ -12,7 +12,6 @@ export default function SearchResults({ results }) {
     }
 
     return (
-        <>
             <Grid container spacing={2}>
                 {results && results.map((result) => (
                     <SingleMovieCard
@@ -21,6 +20,5 @@ export default function SearchResults({ results }) {
                     />
                 ))}
             </Grid>
-        </>
     )
 }

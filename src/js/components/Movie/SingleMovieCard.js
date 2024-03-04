@@ -5,6 +5,7 @@ import WatchListButtons from "../Watchlist/WatchListButtons";
 import RatingWidget from "../Rated/RatingWidget";
 import { useSelector } from "react-redux";
 import { watchlistSelector } from '../../redux/selectors';
+import { NO_IMAGE_URL } from './constants';
 
 
 export default function SingleMovieCard({ movie }) {
@@ -19,8 +20,8 @@ export default function SingleMovieCard({ movie }) {
                         component="img"
                         alt={`${movie.Title}`}
                         height="312"
-                        image={movie.Poster}
-                    />
+                        image={movie.Poster !== "N/A" ? movie.Poster : NO_IMAGE_URL}
+                        />
                 </Link>
                 <CardContent>
                     <Typography gutterBottom variant="body1" component={Link} to={`/title/${movie.imdbID}`}>

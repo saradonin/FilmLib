@@ -23,13 +23,13 @@ const movieDetails = (state = {}, { type, payload }) => {
 const fetch = (state = { loading: false, error: '' }, { type, payload }) => {
     switch (type) {
         case (FETCH_START):
-            return { loading: true, error: '' }
+            return { ...state, loading: true, error: '' }
         case (FETCH_SUCCESS):
-            return { loading: false, error: '' }
+            return { ...state, loading: false, error: '' }
         case (FETCH_ERROR):
-            return { loading: false, error: payload }
+            return { ...state, loading: false, error: payload || '' }
         default:
-            return { loading: false, error: '' }
+            return { ...state, loading: false, error: '' }
     }
 
 }
@@ -37,8 +37,9 @@ const fetch = (state = { loading: false, error: '' }, { type, payload }) => {
 const watchlist = (state = [], { type, payload }) => {
     switch (type) {
         case (ADD_TO_WATCHLIST):
+            const newMovie = { ...payload, watchlist: true }
             if (!state.find(movie => movie.imdbID === payload.imdbID)) {
-                return [...state, payload]
+                return [...state, newMovie]
             }
             return state
         case (REMOVE_FROM_WATCHLIST):

@@ -9,9 +9,9 @@ import Watchlist from "./Watchlist/Watchlist";
 import Search from "./Search/Search";
 import { PersistGate } from "redux-persist/integration/react";
 
+
 export default function Main() {
     return (
-        <>
             <Provider store={store}>
                 <PersistGate persistor={persistor}>
                     <HashRouter>
@@ -26,7 +26,6 @@ export default function Main() {
                     </HashRouter>
                 </PersistGate>
             </Provider>
-        </>
     )
 }
 
