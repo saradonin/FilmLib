@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadingSelector, movieDetailsSelector, watchlistSelector } from "../../redux/selectors";
 import MovieDetails from "./MovieDetails";
-import LoadingOverlay from "../Form/LoadingOverlay";
+import LoadingOverlay from "../Filters/LoadingOverlay";
 import { fetchMovieDetails } from "../../redux/actions";
 
 

@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 import WatchlistResults from "./WatchlistResults";
 import { useSelector, useDispatch } from "react-redux";
 import { watchlistSelector } from "../../redux/selectors";
-import FilterForm from "../Form/FilterForm";
+import FilterForm from "../Filters/FilterForm";
 import { setWatchlistMoviesFilter, setWatchlistSeriesFilter } from "../../redux/actions";
 
 

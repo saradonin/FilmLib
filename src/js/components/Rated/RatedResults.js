@@ -1,12 +1,12 @@
 import React from "react";
-import { Grid, Typography} from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import SingleMovieCard from "../Movie/SingleMovieCard";
 
 
 export default function RatedResults({ rated }) {
 
     return (
-        <>
+        <Box minHeight="75vh" display="flex" alignItems="center" justifyContent="center">
             {rated && rated.length > 0 ? (
                 <Grid container spacing={2}>
                     {rated.map((movie) => (
@@ -18,6 +18,6 @@ export default function RatedResults({ rated }) {
                     You have not rated any movies yet.
                 </Typography>
             )}
-        </>
+        </Box>
     )
 }

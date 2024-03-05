@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import RatedResults from "./RatedResults";
 import { useDispatch, useSelector } from "react-redux";
 import { ratedSelector } from "../../redux/selectors";
-import FilterForm from "../Form/FilterForm";
+import FilterForm from "../Filters/FilterForm";
 import { setRatedMoviesFilter, setRatedSeriesFilter } from "../../redux/actions";
 
 
