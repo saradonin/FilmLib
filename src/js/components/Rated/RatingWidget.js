@@ -22,6 +22,7 @@ export default function RatingWidget({ movie }) {
 
     return (
         <Rating
+            id={movie.imdbID}
             name="simple-controlled"
             value={value}
             onChange={handleRating}

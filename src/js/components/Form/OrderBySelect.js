@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 export default function OrderBySelect({ orderBy, setOrderBy }) {
 
@@ -8,13 +8,6 @@ export default function OrderBySelect({ orderBy, setOrderBy }) {
     };
 
     return (
-        <Box sx={{
-            minWidth: 120,
-            paddingTop: '25px',
-            paddingBottom: '25px',
-            display: 'flex',
-            justifyContent: 'end',
-        }} >
             <FormControl size="small"
                 sx={{ minWidth: 216 }}>
                 <InputLabel id="demo-simple-select-label">Order by ...</InputLabel>
@@ -33,6 +26,5 @@ export default function OrderBySelect({ orderBy, setOrderBy }) {
                     <MenuItem value={"yearOld"}>Year (oldest)</MenuItem>
                 </Select>
             </FormControl>
-        </Box>
     );
 }

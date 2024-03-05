@@ -9,6 +9,8 @@ export const ADD_TO_WATCHLIST = "ADD_TO_WATCHLIST"
 export const REMOVE_FROM_WATCHLIST = "REMOVE_FROM_WATCHLIST"
 export const ADD_TO_RATED = "ADD_TO_RATED"
 export const UPDATE_RATING = "UPDATE_RATING"
+export const SET_RATED_MOVIES_FILTER = "SET_RATED_MOVIES_FILTER"
+export const SET_RATED_SERIES_FILTER = "SET_RATED_SERIES_FILTER"
 
 export const fetchStart = () => {
     return {
@@ -91,6 +93,20 @@ export const updateRating = (movie, rating) => {
     return {
         type: UPDATE_RATING,
         payload: { movie, rating }
+    }
+}
+
+export const setRatedMoviesFilter = (value) => {
+    return {
+        type: SET_RATED_MOVIES_FILTER,
+        payload: value
+    }
+}
+
+export const setRatedSeriesFilter = (value) => {
+    return {
+        type: SET_RATED_SERIES_FILTER,
+        payload: value
     }
 }
 
