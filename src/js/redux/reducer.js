@@ -1,4 +1,4 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_ERROR, SEARCH_SET_RESULTS, ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, UPDATE_RATING, SET_MOVIE_DETAILS, SET_RATED_MOVIES_FILTER, SET_RATED_SERIES_FILTER } from "./actions";
+import { FETCH_START, FETCH_SUCCESS, FETCH_ERROR, SEARCH_SET_RESULTS, ADD_TO_RATED, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, UPDATE_RATING, SET_MOVIE_DETAILS, SET_RATED_MOVIES_FILTER, SET_RATED_SERIES_FILTER, SET_WATCHLIST_MOVIES_FILTER, SET_WATCHLIST_SERIES_FILTER } from "./actions";
 import { combineReducers } from "redux";
 
 
@@ -67,16 +67,26 @@ const rated = (state = [], { type, payload }) => {
     }
 }
 
-const filterSettings = (state = {ratedMovies: true, ratedSeries: true}, {type, payload}) => {
+const initialFilterSettings = {
+    ratedMovies: true, 
+    ratedSeries: true,
+    watchlistMovies: true, 
+    watchlistSeries: true,
+}
+
+const filterSettings = (state = initialFilterSettings, {type, payload}) => {
     switch (type) {
         case (SET_RATED_MOVIES_FILTER):
             return {...state, ratedMovies: payload}
         case (SET_RATED_SERIES_FILTER):
             return {...state, ratedSeries: payload}
+        case (SET_WATCHLIST_MOVIES_FILTER):
+            return {...state, watchlistMovies: payload}
+        case (SET_WATCHLIST_SERIES_FILTER):
+            return {...state, watchlistSeries: payload}
         default:
             return state
     }
-
 }
 
 const reducer = combineReducers({
