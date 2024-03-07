@@ -4,11 +4,11 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: "none",
-  entry: `./src/js/app.js`,
+  entry: ["node-fetch", `./public/js/app.js`],
   devtool: "inline-source-map",
   output: {
     filename: "out.js",
-    path: path.resolve(__dirname, "src", "build"),
+    path: path.resolve(__dirname, `public/build`),
     clean: true,
   },
   devServer: {
@@ -16,7 +16,7 @@ module.exports = {
     hot: true,
     static: [
       {
-        directory: path.join(__dirname),
+        directory: path.join(__dirname, "/"),
         publicPath: "/",
         serveIndex: true,
       },
@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      process: "process",
+      process: "process/browser",
       
     }),
     new Dotenv()
