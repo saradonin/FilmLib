@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Container from '@mui/material/Container';
+import { Container, Box, Typography } from '@mui/material';
 import WatchlistResults from "./WatchlistResults";
 import { useSelector, useDispatch } from "react-redux";
 import { watchlistSelector } from "../../redux/selectors";
@@ -39,14 +39,25 @@ export default function Watchlist() {
     return (
         <>
             <Container maxWidth="lg">
-                <FilterForm
-                    orderBy={orderBy}
-                    setOrderBy={setOrderBy}
-                    isMovies={isMovies}
-                    isSeries={isSeries}
-                    handleMoviesChange={handleMoviesChange}
-                    handleSeriesChange={handleSeriesChange}
-                />
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                }}>
+                    <Typography variant="h4" gutterBottom sx={{
+                        paddingTop: 3
+                    }}>
+                        Watchlist
+                    </Typography>
+
+                    <FilterForm
+                        orderBy={orderBy}
+                        setOrderBy={setOrderBy}
+                        isMovies={isMovies}
+                        isSeries={isSeries}
+                        handleMoviesChange={handleMoviesChange}
+                        handleSeriesChange={handleSeriesChange}
+                    />
+                </Box>
                 <WatchlistResults watchlist={filteredMovies} />
             </Container>
         </>

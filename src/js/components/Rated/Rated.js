@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Container from "@mui/material/Container";
+import { Container, Box, Typography } from "@mui/material";
 import RatedResults from "./RatedResults";
 import { useDispatch, useSelector } from "react-redux";
 import { ratedSelector } from "../../redux/selectors";
@@ -36,14 +36,25 @@ export default function Rated() {
 
     return (
         <Container maxWidth="lg">
-            <FilterForm
-                orderBy={orderBy}
-                setOrderBy={setOrderBy}
-                isMovies={isMovies}
-                isSeries={isSeries}
-                handleMoviesChange={handleMoviesChange}
-                handleSeriesChange={handleSeriesChange}
-            />
+            <Box sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+            }}>
+                <Typography variant="h4" gutterBottom sx={{
+                    paddingTop: 3
+                }}>
+                    Rated movies
+                </Typography>
+
+                <FilterForm
+                    orderBy={orderBy}
+                    setOrderBy={setOrderBy}
+                    isMovies={isMovies}
+                    isSeries={isSeries}
+                    handleMoviesChange={handleMoviesChange}
+                    handleSeriesChange={handleSeriesChange}
+                />
+            </Box>
             <RatedResults rated={filteredMovies} />
         </Container>
     )
