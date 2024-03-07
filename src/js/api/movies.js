@@ -1,4 +1,6 @@
-import { API_KEY, API_URL } from "./constants"
+const API_KEY = process.env.REACT_APP_API_KEY;
+const API_URL = process.env.REACT_APP_API_URL
+
 
 export const getMovieById = async (id) => {
     try {

@@ -68,22 +68,22 @@ const rated = (state = [], { type, payload }) => {
 }
 
 const initialFilterSettings = {
-    ratedMovies: true, 
+    ratedMovies: true,
     ratedSeries: true,
-    watchlistMovies: true, 
+    watchlistMovies: true,
     watchlistSeries: true,
 }
 
-const filterSettings = (state = initialFilterSettings, {type, payload}) => {
+const filterSettings = (state = initialFilterSettings, { type, payload }) => {
     switch (type) {
         case (SET_RATED_MOVIES_FILTER):
-            return {...state, ratedMovies: payload}
+            return {...state, ratedMovies: payload }
         case (SET_RATED_SERIES_FILTER):
-            return {...state, ratedSeries: payload}
+            return {...state, ratedSeries: payload }
         case (SET_WATCHLIST_MOVIES_FILTER):
-            return {...state, watchlistMovies: payload}
+            return {...state, watchlistMovies: payload }
         case (SET_WATCHLIST_SERIES_FILTER):
-            return {...state, watchlistSeries: payload}
+            return {...state, watchlistSeries: payload }
         default:
             return state
     }

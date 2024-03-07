@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import RatedResults from "./RatedResults";
 import { useDispatch, useSelector } from "react-redux";

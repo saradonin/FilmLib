@@ -22,7 +22,11 @@ node_modules/
 ### Webstorm ###
 .idea/
 
+### Environmental variables ###
+.env
+
 ### Other ###
 .test/
 .solution
 src/js/api/constants.js
+

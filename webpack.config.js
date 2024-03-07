@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: "none",
@@ -39,6 +40,8 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       process: "process",
+      
     }),
+    new Dotenv()
   ],
 };
