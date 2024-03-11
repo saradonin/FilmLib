@@ -27,7 +27,7 @@ export default function MovieDetails({ movie, isMovieInWatchlist }) {
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
 
-                    <Table sx={{ minWidth: 360 }} aria-label="simple table">
+                    <Table sx={{ minWidth: 360, marginLeft: 1 }} aria-label="simple table">
                         <TableBody>
                             <TableRow>
                                 <TableCell align="left">Year:</TableCell>
