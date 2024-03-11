@@ -14,3 +14,5 @@ based on the open API from the website http://omdbapi.com/
 1. Clone the repository to your local machine.
 2. Run `npm install` to install dependencies.
 3. Run `npm start` to run the app in your browser.
+
+   ![filmlib](https://github.com/saradonin/FilmLib/assets/124811561/d50222f5-92ff-4465-a66b-0421afa9e8c4)
